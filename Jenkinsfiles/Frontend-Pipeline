@@ -33,7 +33,7 @@ pipeline {
             steps {
                 dir('Application-Code/frontend') {
                     withSonarQubeEnv('sonar-server') {
-                        sh "${SCANNER_HOME/bin}/sonar-scanner -Dsonar.projectName=three-tier-frontend -Dsonar.projectKey=three-tier-frontend"
+                        sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectName=three-tier-frontend -Dsonar.projectKey=three-tier-frontend"
                     }
                 }
             }
@@ -78,7 +78,7 @@ pipeline {
                 sh "trivy image ${AWS_ECR_REPO_NAME} > trivyimage-frontend-${BUILD_NUMBER}-${BUILD_ID}.txt"
             }
         }
-        
+
         stage("ECR Image Pushing") {
             steps {
                 script {
