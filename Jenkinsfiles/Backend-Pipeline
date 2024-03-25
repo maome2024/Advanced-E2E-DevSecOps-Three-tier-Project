@@ -92,14 +92,14 @@ pipeline {
         stage('Update Deployment file') {
             environment {
                 GIT_REPO_NAME = "Advanced-E2E-DevSecOps-Three-tier-Project "
-                GIT_USER_NAME = "MohamedZezo7"
+                GIT_USER_NAME = "maome2024"
             }
             steps {
                 dir('Kubernetes-Manifests-file/Backend') {
                     withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                         sh '''
-                            git config user.email "mohamedabdelazizk10@gmail.com"
-                            git config user.name "Mohamed Abdelaziz"
+                            git config user.email "maome24.n@gmail.com"
+                            git config user.name "CM"
                             BUILD_NUMBER=${BUILD_NUMBER}
                             echo $BUILD_NUMBER
                             imageTag=$(grep -oP '(?<=backend:)[^ ]+' deployment.yaml)
